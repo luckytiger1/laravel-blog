@@ -11,9 +11,9 @@ class ArticlesController extends Controller
     public function index()
     {
         if (\request('tag')) {
-            $articles = Tag::where('name', \request('tag'))->firstOrFail()->articles;
+            $articles = Tag::where('name', \request('tag'))->orderBy('created_at', 'desc')->firstOrFail()->articles;
         } else {
-            $articles = Article::all();
+            $articles = Article::orderBy('created_at', 'desc')->paginate(5);
         }
 
         return view('articles.index', [

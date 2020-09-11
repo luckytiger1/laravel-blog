@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                    <div class="header-title">
+                        <h1>{{ $title }}</h1>
                         <span class="subheading">A Blog Theme by Start Bootstrap</span>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         </h3>
                         <p class="post-meta">Posted by
                             <a href="#">Start Bootstrap</a>
-                            on September 24, 2019</p>
+                            on {{ $article->created_at->format('d M Y') }}</p>
                     </div>
                     <hr>
                 @empty
@@ -40,7 +40,7 @@
                 @endforelse
             <!-- Pager -->
                 <div class="clearfix">
-                    <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+                    <a class="btn btn-primary float-right" href="/articles">All posts &rarr;</a>
                 </div>
             </div>
         </div>

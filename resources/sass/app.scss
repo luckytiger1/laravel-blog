@@ -7,4 +7,34 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.header-title {
+    padding: 100px 0 750px;
+    color: white;
+    @media only screen and (min-width: 768px) {
+        padding: 100px 0;
+    }
+}
 
+.header-title {
+    text-align: center;
+
+    h1 {
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    .subheading {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.1;
+        display: block;
+        margin: 10px 0 0;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    @media only screen and (min-width: 768px) {
+        h1 {
+            font-size: 40px;
+        }
+    }
+}

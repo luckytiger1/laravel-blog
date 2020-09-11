@@ -10,7 +10,7 @@
                         <h1>{{ $article->title }}</h1>
                         <span class="meta">Posted by
               <a href="#">Start Bootstrap</a>
-              on August 24, 2019</span>
+              on {{ $article->created_at->format('d M Y') }}</span>
                     </div>
                 </div>
             </div>

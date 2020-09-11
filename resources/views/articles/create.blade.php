@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="page-heading">
+                    <div class="header-title">
                         <h1>Create new post</h1>
                     </div>
                 </div>
