@@ -20,7 +20,6 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->text('body');
             $table->timestamps();
-            $table->timestamp('published_at')->nullable();
 
             $table->foreign('user_id')
                 ->references('id')

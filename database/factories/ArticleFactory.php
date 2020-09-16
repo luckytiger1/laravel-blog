@@ -2,12 +2,12 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Article;
+use App\Models\Article;
 use Faker\Generator as Faker;
 
 $factory->define(Article::class, function (Faker $faker) {
     return [
-        'user_id' => factory(\App\User::class),
+        'user_id' => factory(\App\Models\User::class),
         'title' => $faker->sentence,
         'description' => $faker->sentence,
         'body' => $faker->paragraph

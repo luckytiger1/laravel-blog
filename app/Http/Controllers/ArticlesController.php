@@ -2,29 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
-use App\Tag;
+use App\Models\Article;
+use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
         if (\request('tag')) {
             $articles = Tag::where('name', \request('tag'))->orderBy('created_at', 'desc')->firstOrFail()->articles;
         } else {
             $articles = Article::orderBy('created_at', 'desc')->paginate(5);
         }
-
         return view('articles.index', [
-            'articles' => $articles
+            'articles' => $articles,
+            'user' => $user
         ]);
     }
 
     public function show(Article $article)
     {
+        $user = User::find($article->user_id);
+//        dd($user);
         return view('articles.show', [
-            'article' => $article
+            'article' => $article,
+            'user' => $user
         ]);
     }
 
@@ -39,7 +43,7 @@ class ArticlesController extends Controller
     {
         $this->validateArticle();
         $article = new Article(\request(['title', 'description', 'body']));
-        $article->user_id = 1;
+        $article->user_id = auth()->user()->id;
         $article->save();
 
         $article->tags()->attach($request->input('tags'));

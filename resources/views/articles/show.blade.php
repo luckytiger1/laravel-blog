@@ -9,7 +9,7 @@
                     <div class="post-heading">
                         <h1>{{ $article->title }}</h1>
                         <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
+              <a href="#">{{ $user->name }}</a>
               on {{ $article->created_at->format('d M Y') }}</span>
                     </div>
                 </div>

@@ -20,10 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="550676e5-86dd-4b72-b06f-10762e8f1228" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/blog-rocketfirm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog-rocketfirm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckIfAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckIfAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/backpack/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/backpack/base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_08_053806_create_articles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_08_053806_create_articles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +173,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -182,7 +192,11 @@
       <updated>1599827248756</updated>
       <workItem from="1599827251220" duration="849000" />
       <workItem from="1599893774516" duration="32000" />
-      <workItem from="1599894477564" duration="2445000" />
+      <workItem from="1599894477564" duration="10189000" />
+      <workItem from="1599972633633" duration="745000" />
+      <workItem from="1599973395370" duration="1041000" />
+      <workItem from="1599975476249" duration="67000" />
+      <workItem from="1600169453532" duration="99000" />
     </task>
     <servers />
   </component>
@@ -199,5 +213,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="588" y="361" width="736" height="387" key="#Notifications" timestamp="1599973604124">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="588" y="361" width="736" height="387" key="#Notifications/0.27.1920.1053@0.27.1920.1053" timestamp="1599973604124" />
+    <state x="688" y="307" key="FileChooserDialogImpl" timestamp="1599974436484">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="688" y="307" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1599974436484" />
+    <state x="475" y="184" key="SettingsEditor" timestamp="1599973377550">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="475" y="184" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1599973377550" />
+    <state x="688" y="283" width="540" height="540" key="StructurePopup" timestamp="1599972680901">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="688" y="283" width="540" height="540" key="StructurePopup/0.27.1920.1053@0.27.1920.1053" timestamp="1599972680901" />
+    <state x="572" y="256" width="774" height="678" key="search.everywhere.popup" timestamp="1600169519395">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="572" y="256" width="774" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1600169519395" />
   </component>
 </project>

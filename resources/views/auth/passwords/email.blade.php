@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@extends('layout')
+
+@section('header')
+   <x-header title="Reset password" />
+@endsection
 
 @section('content')
 <div class="container">

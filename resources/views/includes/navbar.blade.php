@@ -10,15 +10,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/article">Sample Article</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/articles">Articles</a>
                 </li>
                 @guest

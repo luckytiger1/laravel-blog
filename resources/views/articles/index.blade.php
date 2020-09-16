@@ -30,7 +30,7 @@
                             {{ $article->description }}
                         </h3>
                         <p class="post-meta">Posted by
-                            <a href="#">Start Bootstrap</a>
+                            <a href="#">{{ $article->author->name }}</a>
                             on {{ $article->created_at->format('d M Y') }}</p>
                     </div>
                     <hr>
