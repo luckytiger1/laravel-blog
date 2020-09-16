@@ -16,7 +16,7 @@ use App\Models\Article;
 */
 
 Route::get('/', function () {
-    $articles = Article::orderBy('created_at')->take(2)->get();
+    $articles = Article::latest()->take(2)->get();
     $title = 'Simple Blog';
 
     return view('index', [
@@ -24,11 +24,6 @@ Route::get('/', function () {
         'title' => $title
     ]);
 });
-
-Route::get('/article', function () {
-    return view('article');
-});
-
 Route::middleware('auth')->group(function () {
     Route::post('/articles', 'ArticlesController@store');
     Route::put('/articles/{article}', 'ArticlesController@update');

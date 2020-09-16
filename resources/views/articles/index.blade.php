@@ -26,12 +26,14 @@
                                 {{ $article->title }}
                             </h2>
                         </a>
-                        <h3 class="post-subtitle">
+                        <h4 class="post-subtitle">
                             {{ $article->description }}
-                        </h3>
+                        </h4>
                         <p class="post-meta">Posted by
-                            <a href="#">{{ $article->author->name }}</a>
-                            on {{ $article->created_at->format('d M Y') }}</p>
+                            <span class="font-weight-bold text-dark">{{ $article->author->name }}</span>
+                            on <span
+                                class="font-weight-bold text-dark">{{ $article->created_at->format('d M Y') }}</span>
+                        </p>
                     </div>
                     <hr>
             @endforeach
