@@ -56,14 +56,15 @@
                                 @enderror
                             </div>
                         </div>
-                        {{--                        <div class="control-group">--}}
-                        {{--                            <div class="form-group col-xs-12 floating-label-form-group controls">--}}
-                        {{--                                <label for="background">Post background</label>--}}
-                        {{--                                <input type="text" class="form-control" placeholder="Post background URL"--}}
-                        {{--                                       id="background" name="background" required --}}
-                        {{--                                >--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
+                        <div class="control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="background">Post background</label>
+                                <input type="file" class="form-control-file" id="background" name="background">
+                                @error('background')
+                                <p class="text-danger">{{ $errors->first('background') }}</p>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls">
                                 <label for="body">Post body</label>

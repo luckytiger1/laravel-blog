@@ -9,7 +9,7 @@
                     <div class="post-heading">
                         <h1>{{ $article->title }}</h1>
                         <span class="meta">Posted by
-              <span>{{ $user->name }}</span>
+              <span>{{ $article->author->name }}</span>
               on {{ $article->created_at->format('d M Y') }}</span>
                     </div>
                 </div>
@@ -36,14 +36,23 @@
             </div>
         </div>
     </article>
+    <hr>
+    <x-comments :comments="$comments"></x-comments>
     <div class="container">
         <div class="col-lg-8 col-md-10 mx-auto">
             <hr>
-            <div class="form-group">
-                <label for="comment" class="text-uppercase font-weight-bold">Leave a comment</label>
-                <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Post Comment</button>
+            <form action="/comments" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="comment" class="text-uppercase font-weight-bold">Leave a comment</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                    @error('body')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <input type="hidden" name="article_id" id="article_id" value="{{ $article->id }}">
+                <button type="submit" class="btn btn-primary">Post Comment</button>
+            </form>
         </div>
     </div>
 @endsection

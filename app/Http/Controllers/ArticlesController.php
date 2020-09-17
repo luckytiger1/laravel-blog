@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Comment;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,11 +25,11 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
-        $user = User::find($article->user_id);
-//        dd($user);
+        $comments = Comment::where('article_id', $article->id)->get();
+//        dd($article->id);
         return view('articles.show', [
             'article' => $article,
-            'user' => $user
+            'comments' => $comments
         ]);
     }
 
@@ -41,8 +42,11 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        $this->validateArticle();
-        $article = new Article(\request(['title', 'description', 'body']));
+        $attributes = $this->validateArticle();
+        if (\request('background')) {
+            $attributes['background'] = \request('background')->store('background');
+        }
+        $article = new Article(\request(['title', 'description', 'body', 'background']));
         $article->user_id = auth()->user()->id;
         $article->save();
 
@@ -67,9 +71,10 @@ class ArticlesController extends Controller
     protected function validateArticle()
     {
         return \request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'body' => 'required',
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            'background' => 'file',
+            'body' => 'required|max:255',
             'tags' => 'exists:tags,id'
         ]);
     }

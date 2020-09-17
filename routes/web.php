@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/articles/{article}', 'ArticlesController@update');
     Route::get('/articles/{article}/edit', 'ArticlesController@edit');
     Route::get('/articles/create', 'ArticlesController@create');
+    Route::post('/comments', 'CommentsController@store');
 });
 
 Route::get('/articles', 'ArticlesController@index');
