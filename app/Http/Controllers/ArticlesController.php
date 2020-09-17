@@ -26,7 +26,7 @@ class ArticlesController extends Controller
     public function show(Article $article)
     {
         $comments = Comment::where('article_id', $article->id)->get();
-//        dd($article->id);
+
         return view('articles.show', [
             'article' => $article,
             'comments' => $comments
@@ -42,11 +42,13 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        $attributes = $this->validateArticle();
+        $this->validateArticle();
+        $path = null;
         if (\request('background')) {
-            $attributes['background'] = \request('background')->store('background');
+            $path = \request('background')->store('backgrounds');
         }
-        $article = new Article(\request(['title', 'description', 'body', 'background']));
+        $article = new Article(\request(['title', 'description', 'body']));
+        $article->background = $path;
         $article->user_id = auth()->user()->id;
         $article->save();
 

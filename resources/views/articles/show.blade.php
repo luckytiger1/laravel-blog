@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('header')
-    <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url({{$article->background}})">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">

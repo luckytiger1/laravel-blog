@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-    protected $fillable = ['title', 'description', 'body'];
+
+    protected $fillable = ['title', 'description', 'body', 'background'];
+
+    public function getBackgroundAttribute($value)
+    {
+        return asset($value ? 'storage/' . $value : '/img/post-bg.jpg');
+    }
 
     public function path()
     {

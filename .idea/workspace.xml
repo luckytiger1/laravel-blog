@@ -20,17 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="550676e5-86dd-4b72-b06f-10762e8f1228" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/components/comments.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_08_053806_create_articles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_08_053806_create_articles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_16_151155_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_16_151155_create_comments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/articles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/articles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +163,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../twitter-clone/twitter-clone-laravel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -202,7 +196,8 @@
       <workItem from="1599975476249" duration="67000" />
       <workItem from="1600169453532" duration="99000" />
       <workItem from="1600226495059" duration="20912000" />
-      <workItem from="1600354440087" duration="1209000" />
+      <workItem from="1600354440087" duration="2899000" />
+      <workItem from="1600358086367" duration="87000" />
     </task>
     <servers />
   </component>

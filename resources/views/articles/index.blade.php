@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                @foreach($articles as $article)
+                @forelse($articles as $article)
                     <div class="post-preview">
                         <a href="/articles/{{ $article->id }}">
                             <h2 class="post-title">
@@ -36,7 +36,9 @@
                         </p>
                     </div>
                     <hr>
-            @endforeach
+                @empty
+                    <p>No relevant articles yet</p>
+            @endforelse
             <!-- Pager -->
                 <div class="clearfix">
                     <?php echo $articles->links(); ?>
