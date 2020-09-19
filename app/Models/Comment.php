@@ -8,7 +8,7 @@ class Comment extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
-    protected $fillable = ['body'];
+    protected $fillable = ['body', 'user_id', 'article_id'];
 
     public function path()
     {

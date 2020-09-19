@@ -20,20 +20,22 @@
 
 @section('content')
     <article>
-        <div class="container mb-5">
-            <div class="row">
+        <div class="container mb-3">
+            <div class="row mb-5">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     {{ $article->body }}
                 </div>
             </div>
-            <div class="row">
-
-                <p>
-                    @foreach($article->tags as $tag)
-                        <a href="/articles?tag={{ $tag->name }}">{{ $tag->name }}</a>
-                    @endforeach
-                </p>
-            </div>
+            @if(count($article->tags))
+                <div class="row d-flex flex-column">
+                    <span>Tags:</span>
+                    <p>
+                        @foreach($article->tags as $tag)
+                            <a href="/articles?tag={{ $tag->name }}">{{ $tag->name }}</a>
+                        @endforeach
+                    </p>
+                </div>
+            @endif
         </div>
     </article>
     <hr>
@@ -44,8 +46,8 @@
             <form action="/comments" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="comment" class="text-uppercase font-weight-bold">Leave a comment</label>
-                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                    <label for="body" class="text-uppercase font-weight-bold">Leave a comment</label>
+                    <textarea class="form-control" id="body" name="body" rows="3"></textarea>
                     @error('body')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror

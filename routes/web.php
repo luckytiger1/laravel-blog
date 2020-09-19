@@ -36,5 +36,3 @@ Route::get('/articles', 'ArticlesController@index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

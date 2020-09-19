@@ -38,11 +38,13 @@
                     <hr>
                 @empty
                     <p>No relevant articles yet</p>
-            @endforelse
+                @endforelse
             <!-- Pager -->
-                <div class="clearfix">
-                    <?php echo $articles->links(); ?>
-                </div>
+                @if(!is_null($articles))
+                    <div class="clearfix">
+                        {{ $articles->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

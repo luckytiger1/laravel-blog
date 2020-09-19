@@ -4,10 +4,13 @@
             @forelse($comments as $comment)
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{ $comment->author->name }}</h5>
+                        <h5 class="card-title font-weight-bold">{{ $comment->user_id == auth()->id() ? 'You' : $comment->author->name }}</h5>
                         <p class="card-text">
                             {{ $comment->body }}
                         </p>
+                        <span>
+                           {{ $comment->created_at->diffForHumans() }}
+                        </span>
                     </div>
                 </div>
             @empty

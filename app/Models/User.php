@@ -3,12 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use CrudTrait;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -40,10 +44,5 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->hasMany(Article::class);
-    }
-
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value);
     }
 }

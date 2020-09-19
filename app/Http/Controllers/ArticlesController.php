@@ -13,7 +13,7 @@ class ArticlesController extends Controller
     public function index(User $user)
     {
         if (\request('tag')) {
-            $articles = Tag::where('name', \request('tag'))->orderBy('created_at', 'desc')->firstOrFail()->articles;
+            $articles = Tag::where('name', \request('tag'))->latest()->firstOrFail()->articles()->paginate(5);
         } else {
             $articles = Article::orderBy('created_at', 'desc')->paginate(5);
         }

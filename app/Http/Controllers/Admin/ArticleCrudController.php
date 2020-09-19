@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Article;
+use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
  * Class ArticleCrudController
  * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
+ * @property-read CrudPanel $crud
  */
 class ArticleCrudController extends CrudController
 {
@@ -40,10 +41,10 @@ class ArticleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
-        CRUD::column('description');
-        CRUD::column('tags');
-//        CRUD::setFromDb(); // columns
+//        CRUD::column('title');
+//        CRUD::column('description');
+//        CRUD::column('tags');
+        CRUD::setFromDb(); // columns
 //        CRUD::addColumn(['name' => 'tags', 'type' => 'relationship']);
         /**
          * Columns can be defined using the fluent syntax or array syntax:

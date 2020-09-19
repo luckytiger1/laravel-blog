@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\PostRequest;
-use App\Post;
+use App\Http\Requests\CommentRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class PostCrudController
+ * Class CommentCrudController
  * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
+ * @property-read CrudPanel $crud
  */
-class PostCrudController extends CrudController
+class CommentCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +27,9 @@ class PostCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(Post::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/post');
-        CRUD::setEntityNameStrings('post', 'posts');
+        CRUD::setModel(\App\Models\Comment::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/comment');
+        CRUD::setEntityNameStrings('comment', 'comments');
     }
 
     /**
@@ -40,12 +40,16 @@ class PostCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        CRUD::column('user_id');
+        CRUD::column('article_id');
+        CRUD::column('body');
+//        CRUD::column('created_at');
+//        CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
+         * //       * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
@@ -57,9 +61,20 @@ class PostCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(PostRequest::class);
+        CRUD::setValidation(CommentRequest::class);
+//        CRUD::field('user_id');
+        CRUD::addField([   // select2_from_array
+            'name' => 'user_id',
+            'label' => "User",
+            'type' => 'select2',
+            'entity' => 'author',
+            'model' => "App\Models\User", // related model
+            'attribute' => 'name',
+            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+        ]);
+        CRUD::field('article_id');
+        CRUD::field('body');
 
-        CRUD::setFromDb(); // fields
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

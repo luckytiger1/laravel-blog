@@ -12,11 +12,10 @@ class CommentsController extends Controller
     {
         $article_id = $request->input('article_id');
         $this->validateComment();
-        $comment = new Comment(\request(['body']));
+        $comment = new Comment();
         $comment->user_id = auth()->user()->id;
         $comment->article_id = $article_id;
-        $comment->body = $request->input('comment');
-        dd($comment);
+        $comment->body = $request->input('body');
         $comment->save();
 
         return redirect("/articles/{$article_id}");
