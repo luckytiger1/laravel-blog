@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \Illuminate\Support\Facades\Auth;
 use App\Models\Article;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/articles/{article}', 'ArticlesController@update');
     Route::get('/articles/{article}/edit', 'ArticlesController@edit');
     Route::get('/articles/create', 'ArticlesController@create');
-    Route::post('/comments', 'CommentsController@store');
+    Route::post('/comments', 'CommentsController@store')->middleware(ProtectAgainstSpam::class);
 });
 
 Route::get('/articles', 'ArticlesController@index');
