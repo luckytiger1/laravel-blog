@@ -40,11 +40,19 @@ class CommentCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('user_id');
-        CRUD::column('article_id');
+        CRUD::addColumn([
+            'name' => 'author',
+            'type' => 'relationship',
+            'label' => 'Author',
+        ]);
+        CRUD::addColumn([
+            'name' => 'article',
+            'type' => 'relationship',
+            'label' => 'Article',
+        ]);
+
         CRUD::column('body');
-//        CRUD::column('created_at');
-//        CRUD::column('updated_at');
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -52,6 +60,13 @@ class CommentCrudController extends CrudController
          * //       * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+        $this->setupListOperation();
+    }
+
 
     /**
      * Define what happens when the Create operation is loaded.
@@ -62,10 +77,10 @@ class CommentCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(CommentRequest::class);
-//        CRUD::field('user_id');
-        CRUD::addField([   // select2_from_array
+
+        CRUD::addField([
             'name' => 'user_id',
-            'label' => "User",
+            'label' => "Author",
             'type' => 'select2',
             'entity' => 'author',
             'model' => "App\Models\User", // related model
