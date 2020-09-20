@@ -11,14 +11,16 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         $article_id = $request->input('article_id');
+
         $this->validateComment();
+
         $comment = new Comment();
-        $comment->user_id = auth()->user()->id;
+        $comment->user_id = backpack_user()->id;
         $comment->article_id = $article_id;
         $comment->body = $request->input('body');
         $comment->save();
 
-        return redirect("/articles/{$article_id}");
+        return back();
     }
 
     public function validateComment()

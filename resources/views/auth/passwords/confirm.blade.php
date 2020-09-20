@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+<x-header background="img/home-bg.jpg">
+    <div class="header-title">
+        <h1>Confirm password</h1>
+    </div>
+</x-header>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

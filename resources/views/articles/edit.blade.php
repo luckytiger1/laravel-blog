@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('header')
     <header class="masthead" style="background-image: url('img/contact-bg.jpg')">

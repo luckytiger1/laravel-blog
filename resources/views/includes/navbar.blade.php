@@ -12,12 +12,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/articles">Articles</a>
                 </li>
-                @guest
-                @else
+                @auth
                     <li class="nav-item">
                         <a class="nav-link" href="/articles/create">New Post</a>
                     </li>
-                @endguest
+                @endauth
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

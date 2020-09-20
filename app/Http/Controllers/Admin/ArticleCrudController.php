@@ -43,17 +43,13 @@ class ArticleCrudController extends CrudController
     {
         CRUD::column('title');
         CRUD::column('description');
-//        CRUD::column('user_id');
-//        $this->crud->setColumnDetails('user_id', ['attribute' => 'name']);
+
         CRUD::addColumn([
             'name' => 'author',
             'type' => 'relationship',
             'label' => 'Author',
         ]);
 
-
-//        CRUD::setFromDb(); // columns
-//        CRUD::addColumn(['name' => 'tags', 'type' => 'relationship']);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

@@ -1,7 +1,11 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('header')
-    <x-header :title="$title"></x-header>
+    <x-header background="img/home-bg.jpg">
+        <div class="header-title">
+            <h1>{{ $title }}</h1>
+        </div>
+    </x-header>
 @endsection
 
 @section('content')

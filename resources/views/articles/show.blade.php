@@ -1,21 +1,14 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('header')
-    <header class="masthead" style="background-image: url({{$article->background}})">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="post-heading">
-                        <h1>{{ $article->title }}</h1>
-                        <span class="meta">Posted by
+    <x-header :background="$article->background">
+        <div class="post-heading">
+            <h1>{{ $article->title }}</h1>
+            <span class="meta">Posted by
               <span>{{ $article->author->name }}</span>
               on {{ $article->created_at->format('d M Y') }}</span>
-                    </div>
-                </div>
-            </div>
         </div>
-    </header>
+    </x-header>
 @endsection
 
 @section('content')
@@ -26,12 +19,13 @@
                     {{ $article->body }}
                 </div>
             </div>
-
             {{--            @can('edit', $article)--}}
-            @if(current_user()->id == ($article->user_id))
-                <a href="{{ route('article.edit', $article->id)  }}" class="btn btn-primary">Edit Post</a>
-                {{--            @endcan--}}
-            @endif
+            @auth
+                @if(current_user()->id == ($article->user_id) || backpack_user()->hasRole('admin'))
+                    <a href="{{ route('article.edit', $article->id)  }}" class="btn btn-primary">Edit Post</a>
+                    {{--            @endcan--}}
+                @endif
+            @endauth
             <div class="row d-flex justify-content-between mt-4">
                 @if(count($article->tags))
                     <div class="row d-flex flex-column">
@@ -51,22 +45,5 @@
     </article>
     <hr>
     <x-comments :comments="$comments"></x-comments>
-    <div class="container">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <hr>
-            <form action="/comments" method="POST" id="comment-form">
-                @csrf
-                @honeypot
-                <div class="form-group">
-                    <label for="body" class="text-uppercase font-weight-bold">Leave a comment</label>
-                    <textarea class="form-control" id="body" name="body" rows="3"></textarea>
-                    @error('body')
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-                <input type="hidden" name="article_id" id="article_id" value="{{ $article->id }}">
-                <button type="submit" class="btn btn-primary" id="comment-submit">Post Comment</button>
-            </form>
-        </div>
-    </div>
+    @include('comments.create', compact('article'))
 @endsection
