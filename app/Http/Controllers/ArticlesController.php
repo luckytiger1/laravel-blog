@@ -25,11 +25,13 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
+        $user = $article->author;
         $comments = Comment::where('article_id', $article->id)->get();
 
         return view('articles.show', [
             'article' => $article,
-            'comments' => $comments
+            'comments' => $comments,
+            'user' => $user
         ]);
     }
 
@@ -59,11 +61,18 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        abort_if(current_user() != $article->author, 403);
+
+        return view('articles.edit', [
+            'article' => $article,
+        ]);
+
     }
 
     public function update(Request $request, Article $article)
     {
+        abort_if(current_user() != $article->author, 403);
+
         $article->update($this->validateArticle());
 
         return redirect($article->path());

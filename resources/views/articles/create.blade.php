@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <br>
-                        {{--                        <div id="success"></div>--}}
+
                         <button type="submit" class="btn btn-primary" id="sendMessageButton">Create post</button>
                     </form>
                 </div>

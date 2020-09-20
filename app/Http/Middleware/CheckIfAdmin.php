@@ -22,7 +22,9 @@ class CheckIfAdmin
      */
     private function checkIfUserIsAdmin($user)
     {
-         return ($user->isAdmin == 1);
+//        dd(backpack_user());
+//         return ($user->isAdmin == 1);
+        return $user->hasRole('Admin');
     }
 
     /**
@@ -46,7 +48,7 @@ class CheckIfAdmin
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
+     * @param \Closure $next
      *
      * @return mixed
      */
@@ -56,7 +58,7 @@ class CheckIfAdmin
             return $this->respondToUnauthorizedRequest($request);
         }
 
-        if (! $this->checkIfUserIsAdmin(backpack_user())) {
+        if (!$this->checkIfUserIsAdmin(backpack_user())) {
 //            dd($request);
             return $this->respondToUnauthorizedRequest($request);
         }

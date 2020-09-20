@@ -21,21 +21,32 @@
 @section('content')
     <article>
         <div class="container mb-3">
-            <div class="row mb-5">
+            <div class="row" style="margin-bottom: 100px">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     {{ $article->body }}
                 </div>
             </div>
-            @if(count($article->tags))
-                <div class="row d-flex flex-column">
-                    <span>Tags:</span>
-                    <p>
-                        @foreach($article->tags as $tag)
-                            <a href="/articles?tag={{ $tag->name }}">{{ $tag->name }}</a>
-                        @endforeach
-                    </p>
+
+            @can('edit', $article)
+                {{--            @if(current_user()->id == ($article->user_id))--}}
+                <a href="{{ route('article.edit', $article->id)  }}" class="btn btn-primary">Edit Post</a>
+            @endcan
+            {{--            @endif--}}
+            <div class="row d-flex justify-content-between mt-4">
+                @if(count($article->tags))
+                    <div class="row d-flex flex-column">
+                        <span>Tags:</span>
+                        <p class="d-flex flex-column">
+                            @foreach($article->tags as $tag)
+                                <a href="/articles?tag={{ $tag->name }}">{{ $tag->name }}</a>
+                            @endforeach
+                        </p>
+                    </div>
+                @endif
+                <div class="d-flex align-center">
+                    <div class="sharethis-inline-share-buttons"></div>
                 </div>
-            @endif
+            </div>
         </div>
     </article>
     <hr>

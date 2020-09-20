@@ -25,6 +25,9 @@
     <link href="/css/clean-blog.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    <!-- Share this script -->
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5f662647b4de5d0012796f21&product=inline-share-buttons" async="async"></script>
+
 </head>
 
 <body>
@@ -49,16 +52,14 @@
 <!-- Custom scripts for this template -->
 <script src="/js/clean-blog.min.js"></script>
 
-<script src="/js/app.js"></script>
-
-{{--<script type="text/javascript">--}}
-{{--    $(document).ready(function () {--}}
-{{--        $("#comment-form").submit(function (e) {--}}
-{{--            $("#comment-submit").attr("disabled", true);--}}
-{{--            return true;--}}
-{{--        });--}}
-{{--    });--}}
-{{--</script>--}}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#comment-form").submit(function (e) {
+            $("#comment-submit").attr("disabled", true);
+            return true;
+        });
+    });
+</script>
 
 
 </body>

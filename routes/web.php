@@ -27,10 +27,16 @@ Route::get('/', function () {
 });
 Route::middleware('auth')->group(function () {
     Route::post('/articles', 'ArticlesController@store');
-    Route::put('/articles/{article}', 'ArticlesController@update');
-    Route::get('/articles/{article}/edit', 'ArticlesController@edit');
+
+    Route::patch('/articles/{article}', 'ArticlesController@update');
+
+    Route::get('/articles/{article}/edit', 'ArticlesController@edit')
+        ->name('article.edit');
+
     Route::get('/articles/create', 'ArticlesController@create');
-    Route::post('/comments', 'CommentsController@store')->middleware(ProtectAgainstSpam::class);
+
+    Route::post('/comments', 'CommentsController@store')
+        ->middleware(ProtectAgainstSpam::class);
 });
 
 Route::get('/articles', 'ArticlesController@index');
