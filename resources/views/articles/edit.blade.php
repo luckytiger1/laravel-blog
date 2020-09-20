@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <form method="POST" action="/articles/{{ $article->id }}">
+                    <form method="POST" action="/articles/{{ $article->id }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
 
@@ -80,8 +80,9 @@
                                     name="tags[]"
                                     multiple
                                 >
-                                    @foreach($article->tags as $tag)
-                                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                    @foreach($tags as $tag)
+                                        <option
+                                            value="{{ $tag->id }}" {{ in_array($tag->id,$article->tags->pluck('id')->toArray()) ? 'selected' : '' }} >{{ $tag->name }}</option>
                                     @endforeach
                                 </select>
 

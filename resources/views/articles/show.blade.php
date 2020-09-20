@@ -27,11 +27,11 @@
                 </div>
             </div>
 
-            @can('edit', $article)
-                {{--            @if(current_user()->id == ($article->user_id))--}}
+            {{--            @can('edit', $article)--}}
+            @if(current_user()->id == ($article->user_id))
                 <a href="{{ route('article.edit', $article->id)  }}" class="btn btn-primary">Edit Post</a>
-            @endcan
-            {{--            @endif--}}
+                {{--            @endcan--}}
+            @endif
             <div class="row d-flex justify-content-between mt-4">
                 @if(count($article->tags))
                     <div class="row d-flex flex-column">

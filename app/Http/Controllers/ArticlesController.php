@@ -61,10 +61,12 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
+        $tags = Tag::all();
         abort_if(current_user() != $article->author, 403);
 
         return view('articles.edit', [
             'article' => $article,
+            'tags' => $tags
         ]);
 
     }
@@ -74,6 +76,8 @@ class ArticlesController extends Controller
         abort_if(current_user() != $article->author, 403);
 
         $article->update($this->validateArticle());
+
+        $article->tags()->sync($request->input('tags'));
 
         return redirect($article->path());
 
