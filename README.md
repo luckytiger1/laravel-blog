@@ -12,3 +12,7 @@ To run a project:
 2. Type **make php** and **composer install** to install composer dependencies
 3. Run **npm install** to install js dependencies
 4. Admin dashboard is located at localhost/admin
+5. Run **php artisan migrate:fresh --seed** it will generate db with fake data and user with admin role
+
+Admin login: **admin@test.com**
+Admin password: **admin12345**
