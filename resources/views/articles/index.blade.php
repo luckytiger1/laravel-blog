@@ -1,18 +1,11 @@
 @extends('layouts.app')
 
 @section('header')
-    <header class="masthead">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="header-title">
-                        <h1>All articles</h1>
-                    </div>
-                </div>
-            </div>
+    <x-header background="img/contact-bg.jpg">
+        <div class="header-title">
+            <h1>All articles</h1>
         </div>
-    </header>
+    </x-header>
 @endsection
 
 @section('content')

@@ -1,18 +1,11 @@
 @extends('layouts.app')
 
 @section('header')
-    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="header-title">
-                        <h1>Create new post</h1>
-                    </div>
-                </div>
-            </div>
+    <x-header background="img/contact-bg.jpg">
+        <div class="header-title">
+            <h1>Create new post</h1>
         </div>
-    </header>
+    </x-header>
 @endsection
 
 @section('content')

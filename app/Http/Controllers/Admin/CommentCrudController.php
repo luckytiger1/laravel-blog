@@ -52,13 +52,6 @@ class CommentCrudController extends CrudController
         ]);
 
         CRUD::column('body');
-
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * //       * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
     }
 
     protected function setupShowOperation()
@@ -83,19 +76,11 @@ class CommentCrudController extends CrudController
             'label' => "Author",
             'type' => 'select2',
             'entity' => 'author',
-            'model' => "App\Models\User", // related model
+            'model' => "App\Models\User",
             'attribute' => 'name',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
         CRUD::field('article_id');
         CRUD::field('body');
-
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
     }
 
     /**
