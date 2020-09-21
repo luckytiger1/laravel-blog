@@ -19,13 +19,14 @@
                     {{ $article->body }}
                 </div>
             </div>
-            {{--            @can('edit', $article)--}}
-            @auth
-                @if(current_user()->id == ($article->user_id) || backpack_user()->hasRole('admin'))
-                    <a href="{{ route('article.edit', $article->id)  }}" class="btn btn-primary">Edit Post</a>
-                    {{--            @endcan--}}
-                @endif
-            @endauth
+            @can('edit', $article)
+                {{--            @auth--}}
+                {{--                @if(current_user()->id == ($article->user_id) || backpack_user()->hasRole('admin'))--}}
+                <a href="{{ route('article.edit', $article->id)  }}" class="btn btn-primary">Edit Post</a>
+                {{--            @endcan--}}
+                {{--                @endif--}}
+                {{--            @endauth--}}
+            @endcan
             <div class="row d-flex justify-content-between mt-4">
                 @if(count($article->tags))
                     <div class="row d-flex flex-column">

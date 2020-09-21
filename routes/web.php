@@ -28,9 +28,9 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::post('/articles', 'ArticlesController@store');
 
-    Route::patch('/articles/{article}', 'ArticlesController@update');
+    Route::patch('/articles/{article}', 'ArticlesController@update')->middleware('can:edit,article');
 
-    Route::get('/articles/{article}/edit', 'ArticlesController@edit')
+    Route::get('/articles/{article}/edit', 'ArticlesController@edit')->middleware('can:edit,article')
         ->name('article.edit');
 
     Route::get('/articles/create', 'ArticlesController@create');

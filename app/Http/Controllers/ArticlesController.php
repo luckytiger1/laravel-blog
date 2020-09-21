@@ -62,29 +62,29 @@ class ArticlesController extends Controller
     public function edit(Article $article)
     {
         $tags = Tag::all();
-        if (current_user() == $article->author || backpack_user()->hasRole('admin')) {
+//        if (current_user() == $article->author || backpack_user()->hasRole('admin')) {
 
-            return view('articles.edit', [
-                'article' => $article,
-                'tags' => $tags
-            ]);
-        } else {
-            abort(403);
-        }
+        return view('articles.edit', [
+            'article' => $article,
+            'tags' => $tags
+        ]);
+//        } else {
+//            abort(403);
+//        }
     }
 
     public function update(Request $request, Article $article)
     {
-        if (current_user() == $article->author || backpack_user()->hasRole('admin')) {
+//        if (current_user() == $article->author || backpack_user()->hasRole('admin')) {
 
-            $article->update($this->validateArticle());
+        $article->update($this->validateArticle());
 
-            $article->tags()->sync($request->input('tags'));
+        $article->tags()->sync($request->input('tags'));
 
-            return redirect($article->path());
-        } else {
-            abort(403);
-        }
+        return redirect($article->path());
+//        } else {
+//            abort(403);
+//        }
     }
 
     protected function validateArticle()

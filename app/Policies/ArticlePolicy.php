@@ -19,6 +19,6 @@ class ArticlePolicy
      */
     public function edit(User $user, Article $article)
     {
-        return current_user() === $article->author;
+        return backpack_user()->id === $article->user_id;
     }
 }
